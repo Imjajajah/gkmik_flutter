@@ -56,6 +56,30 @@ class LandingPage extends StatelessWidget {
               },
               child: Text("Login"),
             ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              ),
+              onPressed: (){
+                Navigator.pushNamed(context, '/webview');
+              },
+              child: Text("Open Web Page"),
+           ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12)
+,              ),
+              onPressed: (){
+                Navigator.pushNamed(context, '/speakers');
+
+              },
+              child: Text("View Speaker"),
+            ),
           ],
         ),
       ),

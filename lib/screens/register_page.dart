@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../services/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -10,6 +11,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   String firstName = '', lastName = '', email = '', mobile = '';
+  final AuthService _authService = AuthService();
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +48,21 @@ class _RegisterPageState extends State<RegisterPage> {
                 onChanged: (value) => setState(() => mobile = value),
               ),
               SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
+              _isLoading
+                  ? Center(child: CircularProgressIndicator())
+                  : ElevatedButton(
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    print("Registration Data: $firstName, $lastName, $email, $mobile");
+                    setState(() => _isLoading = true);
+                    bool success = await _authService.registerUser(firstName, lastName, email, mobile);
+                    setState(() => _isLoading = false);
+
+                    if (success) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Registration Successful")),
+                      );
+                      Navigator.pop(context); // Go back to landing page
+                    }
                   }
                 },
                 child: Text("Submit"),
