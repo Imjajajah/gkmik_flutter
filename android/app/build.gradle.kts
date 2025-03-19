@@ -6,7 +6,9 @@ plugins {
 }
 
 android {
+
     namespace = "com.example.gkmik_flutter"
+
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
