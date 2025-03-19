@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+
+
 class GFMICWebView extends StatefulWidget {
   const GFMICWebView({Key? key}) : super(key: key);
 
@@ -30,9 +32,9 @@ class _GFMICWebViewState extends State<GFMICWebView> {
           },
         ),
       )
-      // ..loadRequest(Uri.parse("https://portal.gfmic.ph/membership"));
+      ..loadRequest(Uri.parse("https://portal.gfmic.ph/membership"));
       // ..loadRequest(Uri.parse("https://flutter.dev"));
-      ..loadRequest(Uri.parse("https://api.event.gfmic.ph/Event_Management/api/SpeakersDetails/"));
+
 
   }
 

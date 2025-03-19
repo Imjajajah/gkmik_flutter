@@ -5,8 +5,10 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-android {
+android { 
+
     namespace = "com.example.gkmik_flutter"
+
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -24,12 +26,12 @@ android {
         applicationId = "com.example.gkmik_flutter"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdkVersion 19
+        minSdk = 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-
+    ndkVersion = "27.0.12077973"
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
